@@ -24,3 +24,8 @@ resource "aws_lambda_function" "lambda_function" {
     variables = var.environment_variables
   }
 }
+
+resource "aws_cloudwatch_log_group" "lambda_logs" {
+  name              = "/aws/lambda/${var.resource_name}"
+  retention_in_days = 30
+}
